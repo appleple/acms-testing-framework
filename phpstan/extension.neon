@@ -1,0 +1,43 @@
+# a-blog cms プラグイン向け PHPStan 設定。プラグインの phpstan.neon から includes して使う。
+#
+#   includes:
+#     - vendor/ablogcms/testing-framework/phpstan/extension.neon
+#   parameters:
+#     level: 5
+#     paths: [src]
+#     scanDirectories:
+#       - /var/www/html/git/302x/ablogcms/php   # 本体コア（ACMS_ROOT 配下）
+#
+# 役割:
+#   - scanFiles      : 配布時に難読化される ACMS/function.php・Application.php のシンボルを補う
+#                      （難読化出力は eval される blob になり静的解析から消えるため）。
+#                      scanFiles はシンボル供給専用で解析対象にならないため、型注釈の無い
+#                      レガシー API を載せてもスタブ自身がエラー源にならない（stubFiles は
+#                      既存 PHPDoc の上書き用で解析対象になるため不適）。
+#   - bootstrapFiles : main.php / license.php 等が define する定数の存在を PHPStan に教える。
+#                      PLUGIN_DIR / PLUGIN_LIB_DIR（本体 setPath() が実行時に define するパス定数）も
+#                      本体 phpstan/constants.php に含めてあるため constants.php で供給される。これにより
+#                      各プラグインは自前の phpstan bootstrap を持たずに済む。
+#   - dynamic-constants.neon : 定数の値を動的扱いにする（本体 phpstan.neon.dist から生成）
+#   - excludePaths   : 難読化 3 ファイルを scan から除外し、社内（読めるソース）でも二重宣言を防ぐ
+#
+# acms-stubs.stub / constants.php / dynamic-constants.neon はいずれも `composer stubs`
+# （tools/generate-acms-stubs.php）による自動生成物。
+#
+# 難読化されない残りのコア（Services/・SQL.php・Field.php・ACMS/GET.php・GET|POST ハンドラ等）は
+# プラグイン側 phpstan.neon の scanDirectories で本体ソースを直接読ませる。
+includes:
+  - dynamic-constants.neon
+parameters:
+  scanFiles:
+    - acms-stubs.stub
+  bootstrapFiles:
+    - constants.php
+  excludePaths:
+    analyseAndScan:
+      - '*/ablogcms/php/ACMS/function.php'
+      - '*/ablogcms/php/Application.php'
+      - '*/ablogcms/php/main.php'
+  typeAliases:
+    Dsn: 'array{ host: string, user: string, pass: string, name: string, charset: string, prefix: string, type: string, port: int|null, debug: bool }'
+    AcmsLinkOptions: 'array{inherit?: bool, isDeep?: bool, baseId?: bool, explicitTpl?: bool, ignoreTplIfAjax?: bool}'
