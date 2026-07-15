@@ -1,0 +1,58 @@
+# a-blog cms プラグイン向け PHPStan 設定。プラグインの phpstan.neon から includes して使う。
+#
+#   includes:
+#     - vendor/ablogcms/testing-framework/phpstan/extension.neon
+#   parameters:
+#     level: 5
+#     paths: [src]
+#     scanDirectories:
+#       - /var/www/html/git/302x/ablogcms/php   # 本体コア（ACMS_ROOT 配下）
+#
+# 役割:
+#   - scanFiles      : シンボル供給専用（解析対象にならないため、型注釈の無いレガシー API を
+#                      載せてもスタブ自身がエラー源にならない。stubFiles は既存 PHPDoc の上書き用で
+#                      解析対象になるため不適）。
+#                      - acms-stubs.stub   : 配布時に難読化される ACMS/function.php のグローバル関数群
+#                        + Timer（難読化出力は eval される blob になり静的解析から消えるため）。
+#                      - acms-runtime.stub : リクエスト時に本体が動的生成し静的解析から見えない
+#                        シンボル。DB / Auth / Config ... の短縮ファサードエイリアス（app.php の
+#                        class_alias 相当をサブクラスで供給）と、SUID / CID / RBID ... の request-scoped
+#                        定数（固定値 define だと型が縮退し is_int()/truthy 判定が偽陽性になるため
+#                        union 型で供給）。
+#   - bootstrapFiles : config.server.php 相当の設定・CMS 定数の存在を PHPStan に教える（constants.php）。
+#                      リクエスト由来の定数は型が縮退して偽陽性を生むため含めず、acms-runtime.stub で供給する。
+#                      PLUGIN_DIR / PLUGIN_LIB_DIR（本体 setPath() が実行時に define するパス定数）も
+#                      本体 phpstan/constants.php に含めてあるため constants.php で供給される。これにより
+#                      各プラグインは自前の phpstan bootstrap を持たずに済む。
+#   - dynamic-constants.neon : 定数の値を動的扱いにする（本体 phpstan.neon.dist から生成）
+#   - excludePaths   : 難読化 3 ファイルを scan から除外し、社内（読めるソース）でも二重宣言を防ぐ。
+#                      パターンは配置非依存（`*/php/...`）。モノレポ <ROOT>/ablogcms/php と、配布/同梱
+#                      Docker イメージ <ROOT>/php（例 /var/www/html/php）の両末尾に一致する。
+#                      src/Bootstrap.php::resolveBodyRoot() の 2 配置分岐と対応。
+#
+# acms-stubs.stub / acms-runtime.stub / constants.php / dynamic-constants.neon はいずれも `composer stubs`
+# （tools/generate-acms-stubs.php）による自動生成物。
+#
+# 難読化されない残りのコア（Services/・SQL.php・Field.php・ACMS/GET.php・GET|POST ハンドラ等）は
+# プラグイン側 phpstan.neon の scanDirectories で本体ソースを直接読ませる。
+includes:
+  - dynamic-constants.neon
+parameters:
+  scanFiles:
+    - acms-stubs.stub
+    - acms-runtime.stub
+  bootstrapFiles:
+    - constants.php
+  excludePaths:
+    analyseAndScan:
+      - '*/php/ACMS/function.php'
+      - '*/php/Application.php'
+      - '*/php/main.php'
+      # cli_constants.php は request-scoped 定数を null 既定でスタブ定義するが、その値/型は
+      # リクエスト実体を反映しない（CLI/テスト用の縮退値）。scan させると null 型が
+      # acms-runtime.stub の union 型を上書きし is_int()/truthy 判定が偽陽性になるため除外する
+      # （全定数は acms-runtime.stub が正しい型で供給。ドリフト検査で網羅を担保）。
+      - '*/php/config/cli_constants.php'
+  typeAliases:
+    Dsn: 'array{ host: string, user: string, pass: string, name: string, charset: string, prefix: string, type: string, port: int|null, debug: bool }'
+    AcmsLinkOptions: 'array{inherit?: bool, isDeep?: bool, baseId?: bool, explicitTpl?: bool, ignoreTplIfAjax?: bool}'
