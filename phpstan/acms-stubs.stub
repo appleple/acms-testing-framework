@@ -1,0 +1,2562 @@
+<?php
+
+/**
+ * 自動生成物（tools/generate-acms-stubs.php / composer stubs）。手で編集しないこと。
+ * 難読化される ACMS/function.php のシンボルを PHPStan に教えるスタブ。
+ */
+
+class Timer
+{
+    /**
+     * @var float
+     */
+    public $start;
+    /**
+     * @var float
+     */
+    public $end;
+    /**
+     * @var float
+     */
+    public $time;
+    /**
+     * @return void
+     */
+    public function start()
+    {
+    }
+    /**
+     * @return void
+     */
+    public function end()
+    {
+    }
+    /**
+     * @return float
+     */
+    public function _now()
+    {
+    }
+}
+/**
+ * タイムスタンプをRFC2068形式にフォーマットした文字列を取得
+ * @param int $timestamp
+ * @return string
+ */
+function getRFC2068Time($timestamp)
+{
+}
+/**
+ * リクエスト日時を取得
+ * タイムマシンモードの場合はタイムマシンモードを考慮した日時を返す
+ * @return int
+ */
+function requestTime()
+{
+}
+/**
+ * タイムマシーンモードを利用可能な権限をもつユーザーかどうかを判定
+ * @return bool
+ */
+function timemachineAuth()
+{
+}
+/**
+ * タイムマシンモードかどうかを取得
+ * 第2引数がtrueの場合はタイムマシンモードを有効化する
+ * @param bool $set
+ * @return bool
+ */
+function timemachineMode($set = \false)
+{
+}
+/**
+ * リダイレクト
+ * @param string $url
+ * @param bool $is301
+ * @return never
+ */
+function redirect(string $url, bool $is301 = \false)
+{
+}
+/**
+ * 文字列をUTF-8へ正規化する（可能な場合）
+ *
+ * UTF-8以外（SJIS/EUC-JP等）のバイト列が混在すると、バイトベースの判定で
+ * マルチバイト文字の一部が禁止文字（例: 0x5C）と誤判定されることがあるため、
+ * 判定前にUTF-8へ変換して扱う。
+ *
+ * @param string $subject
+ * @return string|false
+ */
+function multiByteConvertToUtf8($subject)
+{
+}
+/**
+ * マルチバイト対応のpreg_match
+ * @param string $pattern
+ * @param string $subject
+ * @param array<string|int, string|null|list<int|string|null>>|null $matches
+ * @param-out array<string|int, string|null|list<int|string|null>>|null $matches
+ * @param 0|256|512|768 $flags
+ * @param int $offset
+ * @return int|false 1: マッチ, 0: 非マッチ, false: エラー
+ */
+function multiBytePregMatch($pattern, $subject, &$matches = \null, $flags = 0, $offset = 0)
+{
+}
+/**
+ * 配列の中に指定した値が含まれているかどうかを判定
+ * @param array $needles
+ * @param array $haystack
+ * @return bool
+ */
+function array_in_array($needles, $haystack)
+{
+}
+/**
+ * メール設定の取得
+ *
+ * @deprecated 未使用のため非推奨
+ * @return non-empty-array<'additional_headers'|'mail_from'|'sendmail_path'|'smtp-google'|'smtp-google-user'|'smtp-host'|'smtp-pass'|'smtp-verify-peer'|'smtp-port'|'smtp-user',
+ *   string
+ * >
+ */
+function mailConfig()
+{
+}
+/**
+ * 文字エンコーディングを検出する
+ * @param string $str
+ * @return string|false
+ */
+function detectEncode($str)
+{
+}
+/**
+ * 指定したIPアドレスがCIDR 表記法を使用したサブネット（例: 192.168.100.0/24）に含まれるかどうかを判定する
+ * @param string $ip IPアドレス
+ * @param string $ipband CIDR 表記法を使用したサブネット
+ * @return bool|null
+ */
+function in_ipband($ip, $ipband)
+{
+}
+/**
+ * プライベートIPアドレスかどうかを判定する
+ * @param string $ip
+ * @return bool
+ */
+function is_private_ip($ip = '')
+{
+}
+function convert_bytes($val, $unit, $pos = 2)
+{
+}
+function return_bytes($val)
+{
+}
+/**
+ * @deprecated 未使用のため非推奨
+ */
+function isBufferable($bytes)
+{
+}
+/**
+ * 503エラーをページに出力
+ * @param string $message
+ */
+function die500($message = '')
+{
+}
+/**
+ * 503エラーをページに出力
+ * @param string $message
+ */
+function die503($message = '')
+{
+}
+/**
+ * 400エラーをページに出力
+ * @param string $message
+ * @return never
+ */
+function die400($message = '')
+{
+}
+/**
+ * 403エラーをページに出力
+ * @param string $message
+ * @return never
+ */
+function die403($message = '')
+{
+}
+/**
+ * 404エラーを出力する
+ * @return never
+ */
+function page404()
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function arrayPath($ary, $path, $key = \null, $isObject = \false)
+{
+}
+/**
+ * ite
+ *
+ * @param array $ary
+ * @param string|int|null $key
+ * @param string $defaultValue
+ * @param bool $exist
+ * @param string $opt
+ * @return int|string
+ */
+function ite($ary = [], $key = \null, $defaultValue = '', $exist = \false, $opt = '')
+{
+}
+/**
+ * 文字列を0以上の整数に変換
+ * 古い関数のため、新しいコードでは使わないことを推奨
+ * @param string $id
+ * @return int
+ */
+function idval($id)
+{
+}
+/**
+ * セキュリティ的に安全なシリアライズ
+ * @param mixed $Obj
+ * @return string
+ */
+function acmsSerialize($Obj): string
+{
+}
+/**
+ * 安全なクラスのみ許可したデシリアライズ
+ *
+ * @param string $data
+ * @return mixed
+ */
+function unserializeAllowedClasses(string $data)
+{
+}
+/**
+ * セキュリティ的に安全なデシリアライズ
+ *
+ * @param string $signedData
+ * @return mixed
+ */
+function acmsUnserialize(string $signedData)
+{
+}
+/**
+ * セキュリティ的に危険なデシリアライズ
+ * 互換性のためあるだけで非推奨です。新しいコードでは使わないことを推奨
+ *
+ * @deprecated
+ * @param string $signedData
+ * @return mixed
+ */
+function acmsDangerUnserialize(string $signedData)
+{
+}
+/**
+ * セキュリティ的に安全なハッシュ
+ * @param string $txt
+ * @param bool $previous
+ * @return string
+ */
+function acmsHash(string $txt, bool $previous = \false): string
+{
+}
+/**
+ * @deprecated 未使用のため非推奨
+ * @param string $html
+ * @return string
+ */
+function stripExternalLink($html)
+{
+}
+/**
+ * ファイルをコピー
+ * @param string $from
+ * @param string $to
+ * @param bool $isPublic
+ * @return bool
+ */
+function copyFile(string $from, string $to, bool $isPublic)
+{
+}
+/**
+ * ファイルを削除
+ *
+ * @param string $path この値は、ユーザーの入力値など信頼されない値を指定しない
+ * @return bool
+ */
+function deleteFile(string $path, bool $isPublic): bool
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ *
+ * @param string $path この値は、ユーザーの入力値など信頼されない値を指定しない
+ * @return void
+ */
+function deleteDirectory(string $path): void
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function strcount($haystack, $needle)
+{
+}
+/**
+ * 文字列をキャメルケースに変換
+ * @param string $str
+ * @param string $glue
+ * @return string
+ */
+function camelize($str, $glue = '_')
+{
+}
+/**
+ * @param string $str
+ * @param string $glue
+ * @return string
+ */
+function decamelize($str, $glue = '_')
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function virtualImageSize($xy, $max)
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function maskImageSize($xy, $size)
+{
+}
+/**
+ * @param string $txt
+ * @param int $n N-gram検索で使用するNの値
+ * @return string[]
+ */
+function ngram($txt, $n)
+{
+}
+/**
+ * ロールによる権限チェックを使用するかチェック
+ *
+ * @param int $suid
+ * @return boolean
+ */
+function roleAvailableUser($suid = \SUID)
+{
+}
+/**
+ * ロールによる権限チェックを使用するかチェック
+ *
+ * @param int $suid
+ * @return boolean
+ */
+function _roleAvailableUser($suid)
+{
+}
+/**
+ * 承認フローに所属するユーザかチェック
+ *
+ * @param int $suid
+ * @return boolean
+ */
+function approvalAvailableUser($suid = \SUID)
+{
+}
+/**
+ * ロールによるエントリー権限チェック
+ *
+ * @param int $bid
+ * @param array{
+ *   entry_id?: int,
+ *   entry_user_id?: int,
+ *   entry_status?: string,
+ *   entry_start_datetime?: string,
+ *   entry_end_datetime?: string
+ * } $entry
+ * @param boolean $status 未使用の引数
+ * @return boolean
+ */
+function roleEntryAuthorization($bid = \BID, $entry = [], $status = \true)
+{
+}
+/**
+ * ロールを含んだエントリーの編集権限チェック
+ *
+ * @param int|null $bid
+ * @param array{
+ *   entry_id?: int,
+ *   entry_user_id?: int
+ * } $entry
+ *
+ * @return boolean
+ */
+function roleEntryUpdateAuthorization($bid = \BID, $entry = [])
+{
+}
+/**
+ * 各ロールの権限があるかチェック
+ *
+ * @param string $action
+ * @param int|null $bid
+ * @param int|null $eid
+ * @param int|null $uid 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function roleAuthorization($action = '', $bid = \BID, $eid = 0, ?int $uid = \SUID)
+{
+}
+/**
+ * ライセンスがスタンダード以上か
+ *
+ * @return boolean
+ */
+function editionWithStandard()
+{
+}
+/**
+ * ライセンスがプロフェッショナル以上か
+ *
+ * @return boolean
+ */
+function editionWithProfessional()
+{
+}
+/**
+ * ライセンスがスタンダードか
+ *
+ * @return boolean
+ */
+function editionIsStandard()
+{
+}
+/**
+ * ライセンスがプロフェッショナルか
+ *
+ * @return boolean
+ */
+function editionIsProfessional()
+{
+}
+/**
+ * ライセンスがエンタープライズか
+ *
+ * @return boolean
+ */
+function editionIsEnterprise()
+{
+}
+/**
+ * ライセンスがユーザー数無制限か
+ *
+ * @return boolean
+ */
+function licenseHasUnlimitedUsers()
+{
+}
+/**
+ * 対象のブログでバージョン管理が有効か調べる
+ *
+ * @return bool
+ */
+function enableRevision()
+{
+}
+/**
+ * 対象のブログで承認機能が有効か調べる
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return boolean
+ */
+function enableApproval($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * 対象のブログで並列承認機能が有効か調べる
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return boolean
+ */
+function enableParallelApproval($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * アクセス中のユーザーが読者かをチェックする
+ *
+ * @return bool
+ */
+function isSessionSubscriber()
+{
+}
+/**
+ * アクセス中のユーザーが投稿者かをチェックする
+ *
+ * @return bool
+ */
+function isSessionContributor()
+{
+}
+/**
+ * アクセス中のユーザーが編集者かをチェックする
+ *
+ * @return bool
+ */
+function isSessionEditor()
+{
+}
+/**
+ * アクセス中のユーザーが管理者かをチェックする
+ *
+ * @return bool
+ */
+function isSessionAdministrator()
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて読者以上の権限をもっているかをチェックする
+ *
+ * @param int $bid
+ * @param bool|array{
+ *   cache?: bool,
+ *   considerTimemachineMode?: bool,
+ * } $options
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithSubscription($bid = \BID, $options = [], ?int $userId = \SUID)
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて投稿者以上の権限をもっているかをチェックする
+ *
+ * @param int $bid
+ * @param bool|array{
+ *   cache?: bool,
+ *   considerTimemachineMode?: bool,
+ * } $options
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithContribution($bid = \BID, $options = [], ?int $userId = \SUID)
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて編集者以上の権限をもっているかをチェックする
+ *
+ * @param int $bid
+ * @param bool|array{
+ *   cache?: bool,
+ *   considerTimemachineMode?: bool,
+ * } $options
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithCompilation($bid = \BID, $options = [], ?int $userId = \SUID)
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて管理者以上の権限をもっているかをチェックする
+ *
+ * @param int $bid
+ * @param bool|array{
+ *   cache?: bool,
+ *   considerTimemachineMode?: bool,
+ * } $options
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithAdministration($bid = \BID, $options = [], ?int $userId = \SUID)
+{
+}
+/**
+ * アクセス中のユーザーが，ルートブログにおいてエンタープライズ管理操作の権限をもっているかをチェックする
+ *
+ * @return bool
+ */
+function sessionWithEnterpriseAdministration()
+{
+}
+/**
+ * アクセス中のユーザーが，ルートブログにおいてプロフェッショナル管理操作の権限をもっているかをチェックする
+ *
+ * @return bool
+ */
+function sessionWithProfessionalAdministration()
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて、フォームの管理権限があるかチェックする
+ *
+ * @param int $bid
+ * @param bool|array{
+ *   cache?: bool,
+ *   considerTimemachineMode?: bool,
+ * } $options
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithFormAdministration($bid = \BID, $options = [], ?int $userId = \SUID)
+{
+}
+/**
+ * 指定したユーザーが，指定されたブログにおいて、スケジュールの管理権限があるかチェックする
+ *
+ * @param int $bid
+ * @param int|null $scid
+ * @param int|null $userId 省略時はアクセス中のユーザー（SUID）を対象にする
+ * @return bool
+ */
+function sessionWithScheduleAdministration($bid = \BID, ?int $scid = \null, ?int $userId = \SUID): bool
+{
+}
+/**
+ * アクセス中のユーザーの承認ポイントを返す
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return int
+ */
+function approvalUserPoint($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * リビジョンの現在承認ポイントを返す
+ *
+ * @param int $eid
+ * @param int $rvid
+ * @param int $bid
+ * @return int
+ */
+function approvalRevisionPublicPoint($eid = \EID, $rvid = \RVID, $bid = \BID)
+{
+}
+/**
+ * リビジョンの現在承認却下ポイントを返す
+ *
+ * @param int $eid
+ * @param int $rvid
+ * @param int $bid
+ * @return int
+ */
+function approvalRevisionRejectPoint($eid = \EID, $rvid = \RVID, $bid = \BID)
+{
+}
+/**
+ * 承認フローの最終承認ポイントを返す
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return int $point
+ */
+function approvalWorkflowPublicPoint($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * 承認フローの最終承認却下ポイントを返す
+ *
+ * @param int $bid
+ * @param int $cid
+ * @return int $point
+ */
+function approvalWorkflowRejectPoint($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * ユーザーが所属するユーザーグループを取得
+ * @param int $uid
+ * @return int[]
+ */
+function getUserGroupIds($uid)
+{
+}
+/**
+ * アクセス中のユーザーが対象のリビジョンにおいて承認プレビューができるか
+ * @param int $bid
+ * @param int $eid
+ * @param int|null $cid
+ * @param int $rvid
+ * @param int $suid
+ * @return boolean
+ */
+function sessionWithApprovalPreview($bid, $eid, $cid, $rvid, $suid)
+{
+}
+/**
+ * アクセス中のユーザーが対象のリビジョンにおいて承認依頼が出来るか
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @param int|null $eid
+ * @param int|null $rvid
+ * @return boolean
+ */
+function sessionWithApprovalRequest($bid = \BID, $cid = \CID, $eid = \null, $rvid = \null)
+{
+}
+/**
+ * アクセス中のユーザーが対象のリビジョンにおいて承認却下依頼が出来るか
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @param int|null $eid
+ * @param int|null $rvid
+ * @return boolean
+ */
+function sessionWithApprovalRejectRequest($bid = \BID, $cid = \CID, $eid = \null, $rvid = \null)
+{
+}
+/**
+ * アクセス中のユーザーが対象のリビジョンにおいて取り下げ（リジェクト）が出来るか
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return boolean
+ */
+function sessionWithApprovalReject($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * アクセス中のユーザーが対象のリビジョンにおいて最終承認が出来るか
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return boolean
+ */
+function sessionWithApprovalPublic($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * アクセス中のユーザーが対象のブログにおいて最終承認が出来るか、またはルートの管理者か
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @return boolean
+ */
+function sessionWithApprovalAdministrator($bid = \BID, $cid = \CID)
+{
+}
+/**
+ * 指定されたユーザーが対象のブログにおいてSNSログイン権限があるか
+ * @param int $uid
+ * @param int $bid
+ * @return bool
+ */
+function snsLoginAuth($uid = \SUID, $bid = \BID)
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ * @param bool $bool
+ * @return bool
+ */
+function is404($bool = \true)
+{
+}
+/**
+ * HTTPステータスコードを取得または設定する
+ * @param null|string $hsc 指定した場合はHTTPステータスコードを設定する
+ * @return string
+ */
+function httpStatusCode($hsc = \null)
+{
+}
+/**
+ * 現在のHTTPステータスコードがエラーかどうかを判定する
+ * @return bool
+ */
+function isErrorHttpStatus()
+{
+}
+/**
+ * エラーログを出力する
+ * AcmsLogger::error() のエイリアス
+ * @deprecated
+ * @param string $mess
+ * @return void
+ */
+function userErrorLog($mess)
+{
+}
+/**
+ * テーマのtemplate.yamlを考慮したのコンフィグを取得する
+ * @param string $key コンフィグのkey
+ * @return string
+ */
+function tplConfig($key)
+{
+}
+/**
+ * 現在のコンテキストにおける，指定されたキーのコンフィグを取得・設定する。
+ * モジュール内で使用した場合は，モジュールIDで設定されたコンフィグを返す。
+ *
+ * 呼び方で挙動が変わる（Laravel の config() ヘルパーに倣う）。
+ *  - config('key')            … キーの値を返す（従来どおり）
+ *  - config('key', 'default') … デフォルト付きで値を返す
+ *  - config(['key' => 'val']) … 連想配列で一時的に書き換える（setConfig 相当）
+ *  - config()                 … 引数なしで Config リポジトリ(Helper)を返す
+ *                               型付き取得は config()->string('key') / integer() 等で行う
+ *                               （config('key')->string() ではない点に注意）
+ *
+ * @template T
+ * @param T $key
+ * @param string|int|null $default
+ * @param int $i
+ * @return (T is string ? string : (T is array ? null : \Acms\Services\Config\Helper))
+ */
+function config($key = \null, $default = \null, $i = 0)
+{
+}
+/**
+ * 現在のコンテキストにおける，指定されたキーのコンフィグを配列で返す
+ * モジュール内で使用した場合は，モジュールIDで設定されたコンフィグを返す
+ *
+ * @param string $key
+ * @param bool $strict
+ * @return array
+ */
+function configArray($key, $strict = \false)
+{
+}
+/**
+ * 現在のコンテキストにおける，指定されたキーのコンフィグを一時的に書き換える
+ *
+ * @param string $key
+ * @param null|mixed $val
+ * @return mixed
+ */
+function setConfig($key, $val = \null)
+{
+}
+/**
+ * CSVをパースして配列に変換する
+ * @param string $csv
+ * @return string[][]
+ */
+function parseCsv($csv)
+{
+}
+/**
+ * データベースのDSNを取得する
+ * @param array{
+ *   host?: string,
+ *   user?: string,
+ *   pass?: string,
+ *   name?: string,
+ *   charset?: string,
+ *   prefix?: string,
+ *   type?: string,
+ *   port?: int|null,
+ *   debug?: bool
+ * } $dsn
+ * @return Dsn
+ */
+function dsn($dsn = [])
+{
+}
+/**
+ * ルーティングに使用するセグメントを取得する
+ * @return array<string, string>
+ */
+function getRoutingSegments()
+{
+}
+/**
+ * 予約語と衝突していないかを検査する
+ *
+ * @param string $word
+ * @param bool $extension
+ * @return bool
+ */
+function isReserved($word, $extension = \true)
+{
+}
+/**
+ * 文字列が正しいコードか検査する
+ *
+ * URLルーティングに使用されるコード（ブログコード、カテゴリーコード、エントリーコードなど）の
+ * バリデーションを行います。
+ *
+ * 禁止される文字列・パターン:
+ * - ディレクトリトラバーサル: ../, .., ./
+ * - 連続するスラッシュ: //
+ * - バックスラッシュ: \
+ * - URL特殊文字: ?, #, &, %
+ * - プロトコル区切り: :
+ * - 制御文字: NULL文字、改行、タブなど
+ * - 空白文字: スペース、タブなど
+ *
+ * ブログコードやエイリアスコードの場合のみ、階層を表現するために / を許可しますが、
+ * 先頭/末尾の / や連続する / は禁止されます。
+ *
+ * UTF-8以外の文字列も正しく判定するため、multiBytePregMatch を用いて
+ * 内部で UTF-8 変換したうえで判定します。
+ *
+ * @param non-empty-string $word
+ * @param bool $allowSlash
+ * @return bool
+ */
+function isValidCode(string $word, bool $allowSlash = \false): bool
+{
+}
+/**
+ * JSモジュールでフロントエンドに渡す変数を設定または取得する
+ * 引数なしで呼び出すと全ての変数を連想配列で取得する
+ *
+ * @template T of string|null
+ * @template U
+ * @param T $key
+ * @param U $value
+ * @return (U is null ? (T is null ? array<string, mixed> : mixed) : bool)
+ */
+function jsModule($key = \null, $value = \null)
+{
+}
+/**
+ * ファイルの拡張子からアイコンのパスを取得する
+ * @param string $ext
+ * @return string
+ */
+function pathIcon($ext)
+{
+}
+/**
+ * サイズ違いの画像パスを取得する
+ * @param string $path
+ * @param 'large' | 'tiny' | 'square' $type
+ * @return string
+ */
+function otherSizeImagePath($path, $type)
+{
+}
+/**
+ * 画像のパスから正規サイズの画像パスを取得する
+ * @param string $path
+ * @return string
+ */
+function normalSizeImagePath($path)
+{
+}
+/**
+ * @param string $str
+ * @param string $trim
+ * @return string
+ */
+function altrim($str, $trim)
+{
+}
+/**
+ * UNRESOLVED_PATH（URL で blog/category/entry に解決できなかった残りパス）と
+ * テンプレート名 $tpl を結合し、テーマ内探索用の候補パスを組み立てる純関数。
+ *
+ * $unresolvedPath 前後の '/' に加え '\'（URL デコードされたバックスラッシュ等、
+ * パス区切りとして意味を持たない文字が不正なリクエストで混入するケース）も
+ * 除去してから連結する。'/' だけを対象に trim すると、末尾がバックスラッシュの
+ * ときにそれが残ったまま $tpl と連結され、意図しないテンプレートパスが
+ * 確定してしまう（例: UNRESOLVED_PATH='\' → '\/index.html'）。
+ *
+ * @param string $unresolvedPath
+ * @param string $tpl
+ * @return string
+ */
+function buildUnresolvedTemplateCandidatePath(string $unresolvedPath, string $tpl): string
+{
+}
+/**
+ * テンプレートとして許可されている拡張子かを判定する純関数。
+ *
+ * 固定で許可される拡張子 (html / htm / twig / csv / xml / json) と
+ * config('allow_template_extension') の和集合を許可リストとして扱う。
+ * .php 等の想定外の拡張子をテンプレートとして読み込むのを防ぐセーフティネット。
+ *
+ * @param string $extension 拡張子 (例: 'html')。先頭の '.' は含めない
+ * @return bool 許可されていれば true
+ */
+function isAllowedTemplateExtension(string $extension): bool
+{
+}
+/**
+ * テーマを考慮したテンプレートファイルを検索する
+ *
+ * テーマ継承チェーンを末尾 (子テーマ) から親テーマへ走査し、最初に実在したファイルの
+ * テーマプレフィックス付きパス (例: 'themes/site2024/sports/baseball/_entry.html') を返す。
+ * 見つからない場合は false。
+ *
+ * 注意: main.php 等の呼び出し側では戻り値を「存在チェック」(boolean 評価) としてだけ使い、
+ * 戻り値の文字列を $path に代入はしない。
+ * 理由は、$path / TPL 定数は「テーマ相対パス」(THEMES_DIR + テーマ名 を含まない) で
+ * 後段の Resolver / TemplateEngine に渡される契約になっているため。
+ * 戻り値をそのまま代入するとテーマプレフィックスが二重に付与され downstream が壊れる。
+ *
+ * @param string $tpl テンプレートファイルのパス (テーマ相対)
+ * @param string|null $theme テーマ名 (省略時は config('theme'))。
+ *                           ACMS_RAM::cacheMethod のキャッシュキーにも参加するため、
+ *                           呼び出し側でテーマを明示するとキャッシュ分離が確実になる。
+ * @return string|false テーマプレフィックス付きパス、または false
+ */
+function findTemplate($tpl, $theme = \null)
+{
+}
+/**
+ * 表示可能なテンプレートかどうかを判定する
+ * @param string $path テンプレートファイルのパス
+ * @return bool
+ */
+function allowViewTemplate($path)
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function getTplContents($path)
+{
+}
+/**
+ * 拡張子からMIMEタイプを取得する
+ * @param string $ext
+ * @return string
+ */
+function getMimetype($ext = '')
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function parseDatetime($datetime)
+{
+}
+/**
+ * エントリータイトルにプレフィックスを追加する
+ * @param string $title
+ * @param 'close' | 'draft' | 'trash' | 'open' $status 'close' | 'draft' | 'trash'
+ * @param string $stime 開始日時
+ * @param string $etime 終了日時
+ * @param 'none' | 'pre_approval' $approval 承認ステータス
+ * @return string
+ */
+function addPrefixEntryTitle($title, $status, $stime, $etime, $approval = 'none')
+{
+}
+/**
+ * config.sytem.yamlに記録されているデフォルトのコンフィグを連想配列で返す
+ *
+ * @return array
+ */
+function loadDefaultConfig()
+{
+}
+/**
+ * ブログID, ルールID, モジュールIDによって指定されたコンテキストのコンフィグをFieldで返す
+ *
+ * @param null|int $bid
+ * @param null|int $rid
+ * @param null|int $mid
+ * @return Field
+ */
+function loadConfig($bid = \null, $rid = \null, $mid = \null)
+{
+}
+/**
+ * 指定されたidに該当するブログのコンフィグをFieldで返す
+ *
+ * @param null|int $bid
+ * @return Field
+ */
+function loadBlogConfig($bid)
+{
+}
+/**
+ * 指定されたidに該当するルールのコンフィグをFieldで返す
+ *
+ * @param int $rid
+ * @param null|int $setid
+ * @return Field
+ */
+function loadRuleConfig($rid, $setid = \null)
+{
+}
+/**
+ * 指定されたidに該当するモジュールIDのコンフィグをFieldで返す
+ *
+ * @param null|int $mid
+ * @return Field
+ */
+function loadModuleConfig($mid, $rid = \null)
+{
+}
+/**
+ * ルールのモジュールコンフィグが存在するかチェック
+ *
+ * @return bool
+ */
+function isExistsRuleModuleConfig()
+{
+}
+/**
+ * ブログID, カテゴリーID, エントリーID，ユーザーIDの
+ * いずれか指定されたカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param null|int $bid
+ * @param null|int $uid
+ * @param null|int $cid
+ * @param null|int $mid
+ * @param null|int $eid
+ * @param null|string $unitId
+ * @param null|int $rvid
+ * @param bool $rewrite
+ * @return Field
+ */
+function loadField($bid = \null, $uid = \null, $cid = \null, $mid = \null, $eid = \null, $unitId = \null, $rvid = \null, $rewrite = \false)
+{
+}
+/**
+ * 指定されたidに該当するブログのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param int $bid
+ * @return Field
+ */
+function loadBlogField($bid)
+{
+}
+/**
+ * 指定されたidに該当するユーザーのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param int $uid
+ * @return Field
+ */
+function loadUserField($uid)
+{
+}
+/**
+ * 指定されたidに該当するカテゴリーのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param int $cid
+ * @return Field
+ */
+function loadCategoryField($cid)
+{
+}
+/**
+ * 指定されたidに該当するモジュールIDのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param int $mid
+ * @return Field
+ */
+function loadModuleField($mid)
+{
+}
+/**
+ * 指定されたidに該当するエントリーのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param int $eid
+ * @return Field
+ */
+function loadEntryField($eid, $rvid = \null, $rewrite = \false)
+{
+}
+/**
+ * 指定されたidに該当するユニットのカスタムフィールドをFieldオブジェクトで返す
+ *
+ * @param string $unitId
+ * @param int|null $rvid
+ * @param bool $rewrite
+ * @return Field
+ */
+function loadUnitField(string $unitId, ?int $rvid = \null, $rewrite = \false)
+{
+}
+/**
+ * ToDo: deplicated mehod Ver. 3.2
+ *
+ * @param int[] $ids
+ * @return array<int, array>
+ */
+function eagerLoadEntry($ids)
+{
+}
+/**
+ * ToDo: deplicated mehod Ver. 3.2
+ *
+ * @param string[]|int[] $ids
+ * @param 'eid'|'uid'|'bid'|'cid'|'mid'|'unit_id' $type
+ * @param int|null $rvid
+ * @return ($ids is string[] ? array<string, \Field> : array<int, \Field>)
+ */
+function eagerLoadField($ids, $type, ?int $rvid = \null)
+{
+}
+/**
+ * ToDo: deplicated mehod Ver. 3.2
+ *
+ * @param int[] $eidArray
+ * @return array<array<int, array<string, mixed>>>
+ */
+function eagerLoadSubCategories($eidArray)
+{
+}
+/**
+ * 指定されたidに該当するGeometryをFieldオブジェクトで返す
+ *
+ * @param string $type
+ * @param int $id
+ * @param int|null $rvid
+ * @param int $bid
+ * @return Field
+ */
+function loadGeometry($type, $id, $rvid = \null, $bid = \BID)
+{
+}
+/**
+ * エントリーIDに紐づくカラムを取得する
+ * ToDo: レガシーな方法なため非推奨。互換性のため残している。
+ *
+ * @param int $eid
+ * @param int|null $range
+ * @param int|null $rvid
+ * @return array<array<string, mixed>>
+ */
+function loadColumn($eid, $range = \null, $rvid = \null)
+{
+}
+/**
+ * フォームユニットをデータベースから取得する
+ * @param int $eid
+ * @return array{
+ *   id: string,
+ *   type: 'text'|'textarea'|'radio'|'select'|'checkbox',
+ *   align: string,
+ *   sort: int,
+ *   group: string,
+ *   attr: string,
+ *   size: string,
+ *   label: string,
+ *   caption: string,
+ *   validatorSet: string,
+ *   values?: string,
+ * }[]
+ */
+function loadFormUnit($eid)
+{
+}
+/**
+ * フルテキスト用のユニットデータを整形する
+ * @param string $text
+ * @return string
+ */
+function fulltextUnitData($text)
+{
+}
+/**
+ * @param int $eid
+ * @param int|null $rvid
+ *
+ * @return array{
+ *   id: int[],
+ *   label: string[],
+ * }
+ */
+function loadSubCategories($eid, $rvid = \null)
+{
+}
+/**
+ * @param int $eid
+ * @param int|null $rvid
+ * @return array<array<string, mixed>>
+ */
+function loadSubCategoriesAll($eid, $rvid = \null)
+{
+}
+/**
+ * @param int $eid
+ * @param int|null $rvid
+ * @param string $type
+ * @return int[]
+ */
+function loadRelatedEntries($eid, $rvid = \null, $type = 'default')
+{
+}
+/**
+ * 指定されたidに該当するブログのレコードをFieldオブジェクトで返す
+ *
+ * @param int $bid
+ * @return Field_Validation
+ */
+function loadBlog($bid)
+{
+}
+/**
+ * 指定されたidに該当するブログのレコードをFieldオブジェクトで返す
+ *
+ * @param int $aid
+ * @return Field_Validation
+ */
+function loadAlias($aid)
+{
+}
+/**
+ * 指定したコンフィグセットIDに該当するコンフィグセットのレコードをFieldオブジェクトで返す
+ * @param int $setid
+ * @return Field_Validation
+ */
+function loadConfigSet($setid)
+{
+}
+/**
+ * 指定されたidに該当するユーザーのレコードをFieldオブジェクトで返す
+ *
+ * @param int $uid
+ * @param mixed $deprecated この引数は廃止されました
+ * @return Field_Validation
+ */
+function loadUser($uid, $deprecated = \null)
+{
+}
+/**
+ * ロールによる権限チェッックを行うユーザーか
+ *
+ * @param int $uid
+ * @return bool
+ */
+function isRoleAvailableUser($uid = \SUID)
+{
+}
+/**
+ * 指定したユーザーのロールを考慮した権限を取得
+ *
+ * @param int|null $uid
+ * @return false|string
+ */
+function getAuthConsideringRole($uid = \SUID)
+{
+}
+/**
+ * 指定されたidに該当するユーザーの画像パスを取得する
+ *
+ * @param int $uid
+ * @return string|false
+ */
+function loadUserIcon($uid)
+{
+}
+/**
+ * 指定されたidに該当するユーザーの拡大画像パスを取得する
+ *
+ * @param int $uid
+ * @return string|false
+ */
+function loadUserLargeIcon($uid)
+{
+}
+/**
+ * 指定されたidに該当するユーザーの画像パスを取得する
+ *
+ * @param int $uid
+ * @return string|false
+ */
+function loadUserOriginalIcon($uid)
+{
+}
+/**
+ * 指定されたbidにカテゴリーが存在するか調べる
+ *
+ * @param int $bid
+ * @return boolean
+ */
+function categoryExists($bid = \BID)
+{
+}
+/**
+ * 指定されたcidの階層を調べる
+ *
+ * @param int $cid
+ * @return int
+ */
+function categoryLevel($cid = \CID)
+{
+}
+/**
+ * 指定されたidに該当するカテゴリーのレコードをFieldオブジェクトで返す
+ *
+ * @param int $cid
+ * @return Field_Validation
+ */
+function loadCategory($cid)
+{
+}
+/**
+ * 指定されたidに該当するルールのレコードをFieldオブジェクトで返す
+ *
+ * @param int $rid
+ * @return Field_Validation
+ */
+function loadRule($rid)
+{
+}
+/**
+ * 指定されたidに該当するモジュールIDのレコードをFieldオブジェクトで返す
+ *
+ * @param int $mid
+ * @return Field_Validation
+ */
+function loadModule($mid)
+{
+}
+/**
+ * 指定されたidに該当するWebhookのレコードをFieldオブジェクトで返す
+ *
+ * @param int $id
+ * @return Field_Validation
+ */
+function loadWebhook($id)
+{
+}
+/**
+ * 指定されたidに該当するロールのレコードをFieldオブジェクトで返す
+ *
+ * @param int $rid
+ * @return Field_Validation
+ */
+function loadRole($rid)
+{
+}
+/**
+ * 指定されたidに該当するユーザグループのレコードをFieldオブジェクトで返す
+ *
+ * @param int $ugid
+ * @return Field_Validation
+ */
+function loadUsergroup($ugid)
+{
+}
+/**
+ * 指定されたブログに該当するワークフローのレコードをFieldオブジェクトで返す
+ *
+ * @param int $bid
+ * @param int|null $cid
+ * @param boolean $status
+ * @return Field_Validation
+ */
+function loadWorkflow($bid = \BID, $cid = \null, $status = \true)
+{
+}
+/**
+ * 指定されたワークフローを削除する
+ *
+ * @param int $bid
+ * @param int|null $cid
+ */
+function deleteWorkflow($bid = \BID, $cid = \null)
+{
+}
+/**
+ * 指定されたidに該当するメディアのレコードをFieldオブジェクトで返す
+ *
+ * @param int $mid
+ * @return Field_Validation
+ */
+function loadMedia($mid)
+{
+}
+/**
+ * css, jsの読み込みをCache Busting対応
+ *
+ * @param string $path
+ * @param string $real_path
+ * @return string
+ */
+function cacheBusting($path, $real_path)
+{
+}
+/**
+ * JSONの文字列を修正するための正規表現
+ * 例: "key": "value" -> "key": "value"
+ * エスケープされたダブルクォートを考慮して、非エスケープのダブルクォートを検出する
+ * ただし、JSONの形式に従っていることが前提
+ *
+ * @param string $json
+ * @return string
+ */
+function repairFlatJson(string $json): string
+{
+}
+/**
+ * i18n : ユーザーロケールを決定
+ * config.server.phpでGETTEXT_TYPEが"auto"の場合有効
+ * return : language_REGION (ja_JP, en_US)
+ *
+ * @return string
+ */
+function getLangAndRegion()
+{
+}
+/**
+ * i18n : テンプレートの国際化
+ * <!-- T -->おはよう<!-- /T -->
+ * <!-- TRANS -->おはよう<!-- /TRANS -->
+ *
+ * 空文字が渡された場合はfalseを返す
+ *
+ * @param string $txt
+ * @return string|false
+ */
+function i18n($txt = \null)
+{
+}
+/**
+ * xi18n : テンプレートの国際化をするための元となるテンプレート
+ * このファイルから各言語用poファイル生成する
+ * <!-- T -->おはよう<!-- /T -->
+ * <!-- TRANS -->おはよう<!-- /TRANS -->
+ *
+ * @param string|null $root
+ * @param string $pot
+ * @return bool
+ */
+function xi18n($root = \null, $pot = 'lang/message.pot')
+{
+}
+/**
+ * @param string $file
+ * @return bool
+ */
+function fileFilter($file)
+{
+}
+/**
+ * @param resource $fp
+ * @param string|null $file
+ * @param array $exists
+ * @return bool
+ */
+function gettextFile($fp, $file = \null, &$exists = [])
+{
+}
+/**
+ * ディレクトリ内のファイルリストを取得
+ * @param string $dir
+ * @param string[] $extAry
+ * @return string[]
+ */
+function getFileList($dir, $extAry = [])
+{
+}
+/**
+ * テンプレート文字列の解決
+ * @param string $txt テンプレート文字列
+ * @param Field_Validation &$Post
+ * @param bool $noBuildIF IFブロックを解決するかどうか
+ * @return string 解決されたテンプレート文字列
+ */
+function build($txt, &$Post, $noBuildIF = \false)
+{
+}
+/**
+ * テンプレート文字列のGETモジュールを解決
+ * @param string $txt テンプレート文字列
+ * @param Field_Validation $Post
+ * @return string 解決されたテンプレート文字列
+ */
+function mainBuild($txt, &$Post)
+{
+}
+/**
+ * verbatim ブロックを解決
+ * @param string $txt
+ * @param bool $escape
+ * @return string
+ */
+function verbatim($txt, $escape = \true)
+{
+}
+/**
+ * 変数ブロックの変数をグローバル変数（$template_vars）に保存する
+ * @param 'Template' | 'Rendered' $block テンプレート文字列
+ * @param string $txt テンプレート文字列
+ * @return string
+ */
+function setBlockVars($block = 'Rendered', $txt = \null)
+{
+}
+/**
+ * 変数ブロックを解決
+ * @param string $txt テンプレート文字列
+ * @param bool $before trueの場合、SetTemplate, GetTemplateブロックを解決。falseの場合、SetRenderd, GetRenderdブロックを解決
+ * @return string
+ */
+function buildVarBlocks($txt, $before = \false)
+{
+}
+/**
+ * IFブロックを解決
+ * @param string $txt テンプレート文字列
+ * @return string
+ */
+function buildIF($txt)
+{
+}
+/**
+ * 逆ポーランド記法での論理式の計算
+ * @param string $string
+ * @return bool|string
+ */
+function reversePolishNotationBool($string)
+{
+}
+/**
+ * IFブロックの式を解決
+ * @param string[] $formula
+ * @return bool
+ */
+function resolveFormula($formula)
+{
+}
+/**
+ * GETモジュールを解決
+ * @param string $name モジュール名 例) Entry_Summary, Touch_Entry etc...
+ * @param string $inner 解決するテンプレート文字列
+ * @param string $opt オプション 例) id="module_id" ctx="bid/1/cid/2" など
+ * @param Field_Validation $Post
+ * @param Field|null $_Config GETモジュール解決後にグローバルに適用するコンフィグ
+ * @param array|null $eagerLoadModule
+ * @return string
+ */
+function boot($name, $inner, $opt, &$Post, $_Config = \null, $eagerLoadModule = \null)
+{
+}
+/**
+ * モジュールIDがアクセス可能なIDか判定
+ * @param int $eid
+ * @param int|null $bid
+ * @param int|null $mbid
+ * @return bool
+ */
+function checkModuleEntry($eid, $bid = \null, $mbid = \null)
+{
+}
+/**
+ * @param 'parent'|'root' $scope
+ * @param string $fd
+ * @return string|int|false
+ */
+function loadAncestorCategory($scope, $fd = 'id')
+{
+}
+/**
+ * @param 'parent'|'root' $scope
+ * @param string $fd
+ * @return string|int|false
+ */
+function loadAncestorBlog($scope, $fd = 'id')
+{
+}
+/**
+ * @return bool
+ */
+function isTemplateCacheEnabled()
+{
+}
+/**
+ * テンプレートキャッシュキーを取得
+ * @param string $path
+ * @param string $theme
+ * @param bool $entry
+ * @return string
+ */
+function getTemplateCacheKey($path, $theme, $entry = \false)
+{
+}
+/**
+ * インクルード文の中だけ、一部のグローバル変数を解決して返す
+ *
+ * @param string $txt
+ * @return string
+ */
+function setGlobalVarsForInclude($txt)
+{
+}
+/**
+ * 配列を文字列に再帰的に結合
+ *
+ * @param mixed $vals
+ * @param string $separator
+ * @return string
+ */
+function recursiveJoin($vals, string $separator = '/'): string
+{
+}
+/**
+ * グローバル変数の連想配列
+ *
+ * @return array<string, mixed>
+ */
+function globalVarsList()
+{
+}
+/**
+ * 与えられた文字列中の，グローバル変数(%{GLOBAL_VAR})を解決して返す
+ *
+ * @param string $txt
+ * @return string
+ */
+function setGlobalVars($txt)
+{
+}
+/**
+ * プレビューURLのフォーマット
+ * @param string $uri
+ * @return string
+ */
+function previewUrlFormat($uri)
+{
+}
+/**
+ * acmsパスを解析したFieldオブジェクトを返す
+ * @param string $path
+ * @return Field
+ */
+function parseAcmsPath($path)
+{
+}
+/**
+ * クエリ文字列を解析して返す
+ * @param string $query
+ * @return array<string, string|array<string>>
+ */
+function parseQuery($query)
+{
+}
+/**
+ * 現在のURLコンテキストを継承する
+ * @param Field $Q
+ * @return true
+ */
+function inheritAcmsQuery(&$Q)
+{
+}
+/**
+ * 指定されたブログ、エイリアスのドメインを割り出して返す
+ *
+ * @param int|null $bid
+ * @param int|null $aid
+ * @return string
+ */
+function blogDomain($bid = \null, $aid = \null)
+{
+}
+/**
+ * 連想配列で指定されたURLコンテキストからURLを割り出して返す
+ *
+ * 第2引数でオプションを指定できます。
+ *
+ * inherit          - 現在のURLコンテキストを引き継ぐかどうかを指定します。（デフォルト: true）
+ *                    trueの場合、現在のページの状態(bid,eid等)を維持したままリンクを生成します。
+ *
+ * isDeep           - 第一引数のFieldオブジェクトのディープコピーを行うかどうかを指定します。（デフォルト: false）
+ *
+ * baseId           - ID指定によるのパス（bid/1/cid/1/）を生成するかどうかを指定します。（デフォルト: false）
+ *
+ * explicitTpl      - URLコンテキストのTPLを必ず生成するかどうかを指定します。（デフォルト: false）
+ *                    trueの場合、URLコンテキストのTPLを必ず生成します。
+ *                    falseの場合、tplが指定されている場合でも、不要な場合は生成しません。
+ *
+ * ignoreTplIfAjax  - Ajaxリクエスト時にtplパラメータを無視するかどうかを指定します。（デフォルト: true）
+ *                    trueの場合、Ajaxリクエスト時にtplパラメータを無視します。
+ *
+ *
+ * @param Field|array{
+ *   bid?: int|null,
+ *   cid?: int|null,
+ *   eid?: int|null,
+ *   sid?: int|null,
+ *   aid?: int|null,
+ *   uid?: int|null,
+ *   cmid?: int|null,
+ *   utid?: string|null,
+ *   keyword?: string|null,
+ *   tag?: string|string[]|null,
+ *   field?: string|null,
+ *   order?: string|null,
+ *   tpl?: string|null,
+ *   page?: int|null,
+ *   proxy?: string|null,
+ *   span?: bool,
+ *   admin?: string|null,
+ *   api?: string|null,
+ *   login?: bool,
+ *   admin-reset-password?: bool,
+ *   admin-reset-password-auth?: bool,
+ *   admin-tfa-recovery?: bool,
+ *   signin?: bool,
+ *   signup?: bool,
+ *   reset-password?: bool,
+ *   reset-password-auth?: bool,
+ *   tfa-recovery?: bool,
+ *   update-profile?: bool,
+ *   update-password?: bool,
+ *   update-email?: bool,
+ *   update-tfa?: bool,
+ *   withdrawal?: bool,
+ *   limit?: int|null,
+ *   domain?: string|null,
+ *   fragment?: string|null,
+ *   start?: string|null,
+ *   end?: string|null,
+ *   date?: string|int[]|string[]|null,
+ *   protocol?: string|null,
+ *   port?: int|null,
+ *   query?: array<string, mixed>|\Field,
+ * } $Q
+ * @param bool|AcmsLinkOptions $inheritOrOptions
+ * @param bool $isDeep 非推奨の引数
+ * @param bool $baseId 非推奨の引数
+ * @param bool $explicitTpl 非推奨の引数
+ * @return false|string
+ */
+function acmsLink($Q = [], $inheritOrOptions = \true, $isDeep = \false, $baseId = \false, $explicitTpl = \false)
+{
+}
+/**
+ * acmsLink()でpageを出すようにする
+ *
+ * @param Field|array{
+ *   bid?: int|null,
+ *   cid?: int|null,
+ *   eid?: int|null,
+ *   sid?: int|null,
+ *   aid?: int|null,
+ *   uid?: int|null,
+ *   cmid?: int|null,
+ *   utid?: string|null,
+ *   keyword?: string|null,
+ *   tag?: string|string[]|null,
+ *   field?: string|null,
+ *   order?: string|null,
+ *   tpl?: string|null,
+ *   page?: int|null,
+ *   proxy?: string|null,
+ *   span?: bool,
+ *   admin?: string|null,
+ *   api?: string|null,
+ *   login?: bool,
+ *   admin-reset-password?: bool,
+ *   admin-reset-password-auth?: bool,
+ *   admin-tfa-recovery?: bool,
+ *   signin?: bool,
+ *   signup?: bool,
+ *   reset-password?: bool,
+ *   reset-password-auth?: bool,
+ *   tfa-recovery?: bool,
+ *   update-profile?: bool,
+ *   update-password?: bool,
+ *   update-email?: bool,
+ *   update-tfa?: bool,
+ *   withdrawal?: bool,
+ *   limit?: int|null,
+ *   domain?: string|null,
+ *   fragment?: string|null,
+ *   start?: string|null,
+ *   end?: string|null,
+ *   date?: string|int[]|string[]|null,
+ *   protocol?: string|null,
+ *   port?: int|null,
+ *   query?: array<string, int|string|(int|string)[]>|\Field,
+ * } $Q
+ * @param AcmsLinkOptions $options オプション
+ * @return bool|string
+ */
+function acmsLink_page($Q = [], $options = [])
+{
+}
+/**
+ * 連想配列で指定されたURLコンテキストからパスを割り出して返す
+ * @param Field|array{
+ *   bid?: int|null,
+ *   cid?: int|null,
+ *   eid?: int|null,
+ *   sid?: int|null,
+ *   aid?: int|null,
+ *   uid?: int|null,
+ *   cmid?: int|null,
+ *   utid?: string|null,
+ *   keyword?: string|null,
+ *   tag?: string|string[]|null,
+ *   field?: string|null,
+ *   order?: string|null,
+ *   tpl?: string|null,
+ *   page?: int|null,
+ *   proxy?: string|null,
+ *   span?: bool,
+ *   admin?: string|null,
+ *   api?: string|null,
+ *   login?: bool,
+ *   admin-reset-password?: bool,
+ *   admin-reset-password-auth?: bool,
+ *   admin-tfa-recovery?: bool,
+ *   signin?: bool,
+ *   signup?: bool,
+ *   reset-password?: bool,
+ *   reset-password-auth?: bool,
+ *   tfa-recovery?: bool,
+ *   update-profile?: bool,
+ *   update-password?: bool,
+ *   update-email?: bool,
+ *   update-tfa?: bool,
+ *   withdrawal?: bool,
+ *   limit?: int|null,
+ *   domain?: string|null,
+ *   fragment?: string|null,
+ *   start?: string|null,
+ *   end?: string|null,
+ *   date?: string|int[]|string[]|null,
+ *   protocol?: string|null,
+ *   port?: int|null
+ * } $Q
+ * @param bool $isAdmin 管理画面用のパス（bid/1/cid/1/）を生成するかどうか
+ * @param bool $baseId ID指定によるのパス（bid/1/cid/1/）を生成するかどうか
+ * @param bool $explicitTpl URLコンテキストのTPLを必ず生成するかどうかを指定します
+ */
+function acmsPath($Q = \null, $isAdmin = \false, $baseId = \false, $explicitTpl = \false): string
+{
+}
+/**
+ * ブログが子ブログを持っているかどうか
+ * @param int $bid
+ * @return bool
+ */
+function isBlogGlobal($bid)
+{
+}
+/**
+ * 指定したブログが指定した親ブログの子ブログ可どうか判定
+ * @param int $bid
+ * @param int $pid
+ * @param bool $self 自分自身を含めるかどうか
+ * @return bool
+ */
+function isBlogAncestor($bid, $pid, $self = \false)
+{
+}
+/**
+ * 開発モードの場合、アラートを表示するためのJavaScriptを返す
+ * 開発モードでない場合はfalseを返す
+ * @return string|false
+ */
+function checkDevelopment()
+{
+}
+/**
+ * デバックモードかどうか判定
+ * @return bool
+ */
+function isDebugMode()
+{
+}
+/**
+ * 監査ログの出力モードが本番モードかどうか判定
+ * @return bool
+ */
+function isProductionModeForLogger()
+{
+}
+/**
+ * ベンチマークモードかどうか判定
+ * @return bool
+ */
+function isBenchMarkMode()
+{
+}
+/**
+ * ベンチマークデータをスナップショット化する
+ * @return array{
+ *   modules: array<int, array{
+ *     module?: string,
+ *     identifier?: string,
+ *     sql_count?: int,
+ *     run_time?: float,
+ *     sort_key?: float
+ *   }>,
+ *   slow_queries: array<int, array{
+ *     time?: float,
+ *     query?: string
+ *   }>,
+ *   global_vars: array<string, mixed>,
+ *   templates: array<int, string>,
+ *   memory: array{
+ *     limit: string,
+ *     usage: int,
+ *     peak: int
+ *   },
+ *   query_count: int,
+ *   totals: array{
+ *     boot: float,
+ *     build: float,
+ *     rewrite: float,
+ *     module_total: float,
+ *     process_total: string
+ *   }
+ * }
+ */
+function acmsBenchmarkSnapshot(): array
+{
+}
+/**
+ * Server-Timing ヘッダー値を構築する（サマリのみ）
+ * @param array{
+ *   modules?: array<int, array{
+ *     module?: string,
+ *     identifier?: string,
+ *     sql_count?: int,
+ *     run_time?: float,
+ *     sort_key?: float
+ *   }>,
+ *   slow_queries?: array<int, array{
+ *     time?: float,
+ *     query?: string
+ *   }>,
+ *   memory?: array{
+ *     limit?: string,
+ *     usage?: int,
+ *     peak?: int
+ *   },
+ *   query_count?: int,
+ *   totals?: array{
+ *     boot?: float,
+ *     build?: float,
+ *     rewrite?: float,
+ *     module_total?: float,
+ *     process_total?: string
+ *   }
+ * } $snapshot
+ * @return string
+ */
+function acmsBenchmarkBuildServerTiming(array $snapshot): string
+{
+}
+/**
+ * Server-Timing ヘッダーを付与する
+ * @return void
+ */
+function acmsBenchmarkEmitHeaders(): void
+{
+}
+/**
+ * テンプレートがHTMLかどうか判定
+ * @return bool
+ */
+function isHtmlTemplate(): bool
+{
+}
+/**
+ * クッキーを送信する
+ * @param string $name
+ * @param string|null $value
+ * @param int $expires
+ * @param string $path
+ * @return void
+ */
+function acmsSetCookie($name, $value, $expires = 0, $path = '/')
+{
+}
+/**
+ * 登録されていないドメインのアクセスの場合、フラグを設定
+ * @return void
+ */
+function setUnregisteredDomain()
+{
+}
+/**
+ * 登録されていないドメインのアクセスか判定
+ * @return bool
+ */
+function isUnregisteredDomain()
+{
+}
+/**
+ * 旧ライセンスかどうか判定
+ * @return bool
+ */
+function isOldLicense()
+{
+}
+/**
+ * トライアルモードかどうか判定
+ * @return bool
+ */
+function isTrial()
+{
+}
+/**
+ * トライアルモードを設定
+ * @param bool $reset
+ * @return void
+ */
+function setTrial($reset = \false)
+{
+}
+/**
+ * クローラーによるアクセスか判定
+ * @return bool
+ */
+function isClawler()
+{
+}
+/**
+ * コンテンツを出力する
+ * @param string $contents
+ * @return void
+ */
+function printContents($contents)
+{
+}
+/**
+ * シャットダウン処理
+ * @return true
+ */
+function shutdown()
+{
+}
+/**
+ * 特定指定子を除外した、一般名のユニット種別
+ * @param string $type
+ * @return string
+ */
+function detectUnitTypeSpecifier($type)
+{
+}
+/**
+ * @deprecated 何もしないため非推奨
+ * @param mixed &$val
+ * @return true
+ */
+function fixEncodingAssoc(&$val)
+{
+}
+/**
+ * HTML内のコメントを削除する
+ * @param string $html
+ * @return string
+ */
+function removeComments($html)
+{
+}
+/**
+ * HTML内の空白を削除する
+ * @param string $html
+ * @return string
+ */
+function removeBlank($html)
+{
+}
+/**
+ * アーカイブ画像パスのドメインを書き換える
+ * @param string $html
+ * @return string
+ */
+function useArchivesServer($html)
+{
+}
+/**
+ * acmsUserPasswordHash
+ * ユーザーパスワードのハッシュを生成
+ *
+ * @param string $password
+ * @return string
+ */
+function acmsUserPasswordHash($password)
+{
+}
+/**
+ * パスワードの照合
+ * @param string $password ユーザーが入力したパスワード
+ * @param string $hash ハッシュ化されたパスワード
+ * @param int $generation
+ * @return bool
+ */
+function acmsUserPasswordVerify($password, $hash, $generation)
+{
+}
+/**
+ * ハッシュ化されたパスワードを生成
+ * セキュリティ的に危険なため非推奨（互換性のために残してあります）
+ * @see https://www.php.net/manual/ja/faq.passwords.php#faq.passwords.hashing
+ * @param string $password
+ * @return string
+ */
+function passwordHashGeneration1($password)
+{
+}
+/**
+ * ハッシュ化されたパスワードを生成
+ * セキュリティ的に危険なため非推奨（互換性のために残してあります）
+ * @see https://www.php.net/manual/ja/faq.passwords.php#faq.passwords.hashing
+ * @param string $password
+ * @return string
+ */
+function passwordHashGeneration2($password)
+{
+}
+/**
+ * ハッシュ化されたパスワードを生成
+ * @see https://www.php.net/manual/ja/faq.passwords.php#faq.passwords.hashing
+ * PASSWORD_HASH_COST 環境変数が設定されている場合のみコストを上書きする（未設定時は
+ * PASSWORD_DEFAULT の既定コストのまま＝挙動は変わらない）。テストスイートでは
+ * password_hash() のコストが実行時間の大半を占めるため、phpunit.xml.dist でのみ
+ * 低いコストに固定して高速化する。password_verify() はハッシュ内のコストを読むため
+ * 検証結果に影響しない。
+ * @param string $password
+ * @return string|false
+ */
+function passwordHashGeneration3($password)
+{
+}
+/**
+ * パスワード生成の方法を取得
+ * @param array{
+ *   user_pass: string,
+ *   user_pass_generation: int
+ * } $user
+ * @return int
+ */
+function getPasswordGeneration($user)
+{
+}
+/**
+ * uniqueString
+ * 指定した文字数のランダム文字列生成
+ *
+ * @param int $length
+ * @return string
+ */
+function uniqueString($length = 32)
+{
+}
+/**
+ * uuidv4
+ *
+ * @param string|null $data
+ * @return non-empty-string
+ */
+function uuidv4($data = \null): string
+{
+}
+/**
+ * set cookie ( localstorage delete flag )
+ *
+ * @return true
+ */
+function setCookieDelFlag()
+{
+}
+/**
+ * DB
+ * DBインスタンスの省力化
+ *
+ * 未使用のため非推奨 Dababase Facade を利用してください。
+ * @deprecated
+ * @param callable $func
+ * @return DB
+ */
+function DB($func = \null)
+{
+}
+/**
+ * DB
+ * テーブルの存在確認
+ *
+ * @param string $tb
+ * @return boolean
+ */
+function dbTableExists($tb)
+{
+}
+/**
+ * DB
+ * テーブルの作成
+ *
+ * @param string $tb
+ * @param array $data
+ * @param array|null $idx
+ * @return void
+ */
+function dbCreateTables($tb, $data, $idx = \null)
+{
+}
+/**
+ * DB
+ * テーブルの削除
+ *
+ * @param array $tbs
+ * @return void
+ */
+function dbDropTables($tbs)
+{
+}
+/**
+ * AAPP
+ * 拡張アプリが有効かどうか
+ *
+ * 未使用のため非推奨
+ * @deprecated
+ * @param string $app
+ * @return boolean
+ */
+function appStatus($app)
+{
+}
+/**
+ * array_clean
+ * http://d.hatena.ne.jp/H6K/20090601/p1
+ *
+ * @param array $array
+ * @return array
+ */
+function array_clean($array)
+{
+}
+/**
+ * すべてのサブ配列の要素を指定した深さで再帰的に結合した新しい配列を生成する
+ * @see https://kakakakakku.hatenablog.com/entry/2015/11/18/014129
+ * @param array $array
+ * @param int $depth フラットにする深さ。デフォルトは1。PHP_INT_MAXで、すべてのレベルをフラットにする
+ * @return array
+ */
+function array_flatten(array $array, int $depth = 1): array
+{
+}
+/**
+ * is_hash
+ * http://d.hatena.ne.jp/fbis/20091112/1258002754
+ *
+ * 未使用のため非推奨
+ * @deprecated
+ * @param array $array
+ * @return boolean
+ */
+function is_hash(&$array)
+{
+}
+/**
+ * is_ajax
+ *
+ * @return boolean
+ */
+function is_ajax()
+{
+}
+/**
+ * byteConvert
+ *
+ * @param int $size
+ * @return string
+ */
+function byteConvert($size)
+{
+}
+/**
+ * stripWhitespace
+ *
+ * @param string $txt
+ * @return string
+ */
+function stripWhitespace($txt)
+{
+}
+/**
+ * acmsDump
+ *
+ * @param mixed $obj
+ * @param bool $die
+ */
+function acmsDump($obj, $die = \false)
+{
+}
+/**
+ * 権限ごとのIPチェック
+ *
+ * @param int|null $uid
+ * @param int|null $bid
+ * @return void|never
+ */
+function authorityRestriction($uid = \SUID, $bid = \BID)
+{
+}
+/**
+ * ログアウト
+ *
+ * @param int|null $uid
+ * @return void
+ */
+function logout($uid = \SUID)
+{
+}
+/**
+ * isCSRF
+ *
+ * @return bool
+ */
+function isCSRF()
+{
+}
+/**
+ * roleUserLoginCheck
+ *
+ * @param array{
+ *   user_id: int,
+ *   user_blog_id: int,
+ *   user_login_anywhere: 'on' | 'off',
+ * } $user
+ * @return boolean
+ */
+function roleUserLoginAuth($user)
+{
+}
+/**
+ * get cookie host.
+ * localhostの場合はfalseを返す
+ * @return string|false
+ */
+function getCookieHost()
+{
+}
+/**
+ * generateSession
+ *
+ * @param int $uid
+ * @return string sid
+ */
+function generateSession($uid, $persistent = 'on')
+{
+}
+/**
+ * DBに保存されているセッションIDを取得
+ * 同時ログイン禁止のために使用
+ *
+ * @param int $uid
+ * @param string $host
+ * @param bool $address
+ * @return string
+ */
+function getSessionIdFromDB($uid, $host, $address = \false)
+{
+}
+/**
+ * ロール権限でログインできる権限をもつか判定
+ * @param int $uid
+ * @return bool
+ */
+function loginRoleCheck($uid)
+{
+}
+/**
+ * 未使用のため非推奨
+ * @deprecated
+ */
+function arrayColumn($input, $key)
+{
+}
+/**
+ * isStreamLike
+ * 指定された値がストリームのようなものかどうかを判定
+ *
+ * @param mixed $value
+ * @return bool
+ */
+function isStreamLike($value): bool
+{
+}
+/**
+ * 例外のスタックトレースを文字列で取得
+ * @param \Throwable $exception
+ * @return string
+ */
+function getExceptionTraceAsString(\Throwable $exception)
+{
+}
+/**
+ * 指定色（Hex指定 例: #FFFFFF）に載せる文字色として、コントラストが高くなるように、黒系、白系のカラーを返す
+ * @param string $hex
+ * @param string $black
+ * @param string $white
+ * @return string
+ */
+function contrastColor($hex, $black = '#000000', $white = '#ffffff')
+{
+}
+/**
+ * ユーザー切り替えが可能なユーザーかどうか判定
+ * @param int $uid
+ * @return bool
+ */
+function canSwitchUser($uid)
+{
+}
+/**
+ * 承認メール送信元のアドレスを取得
+ * @param int $uid
+ * @return string
+ */
+function getApprovalFrom($uid)
+{
+}
+/**
+ * APIビルドかどうか判定
+ * @return bool
+ */
+function isApiBuild()
+{
+}
+/**
+ * APIビルドか、V2モジュールである場合はtrueを返す
+ */
+function isApiBuildOrV2Module()
+{
+}
+/**
+ * PHP8.1との互換性を持たせるためのfputcsv関数
+ *
+ * @param resource $stream
+ * @param array $fields
+ * @param string $separator
+ * @param string $enclosure
+ * @param string $escape
+ * @param string $eol
+ * @return int|false
+ */
+function acmsFputcsv($stream, array $fields, string $separator = ",", string $enclosure = "\"", string $escape = "\\", string $eol = "\n")
+{
+}
+/**
+ * 連想配列を制限をかけたJSON文字列に変換
+ * @param array $data
+ * @param int $length
+ * @param int $depth
+ * @return string|false
+ */
+function limitedJsonEncode($data, $length = 100, $strLength = 1024, $depth = 5)
+{
+}
