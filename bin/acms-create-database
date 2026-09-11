@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * テスト用データベースのスキーマを無人で作成する CLI。
+ *
+ * プラグイン側からは composer 経由で `vendor/bin/acms-create-database` として実行できる。
+ * 本体パスは環境変数 ACMS_ROOT で渡す（phpunit.xml の <env name="ACMS_ROOT" /> と同じ経路）。
+ */
+
+(static function (): void {
+    // Composer が生成する bin プロキシは呼び出し元プロジェクトの vendor/autoload.php を
+    // $GLOBALS['_composer_autoload_path'] に設定してから本スクリプトを include する。
+    // パスの推測より確実なため最優先で使う。
+    if (isset($GLOBALS['_composer_autoload_path']) && is_file($GLOBALS['_composer_autoload_path'])) {
+        require_once $GLOBALS['_composer_autoload_path'];
+        return;
+    }
+
+    $candidates = [
+        // composer プロキシを介さず直接実行された場合
+        // 依存として install された場合: vendor/ablogcms/testing-framework/bin
+        __DIR__ . '/../../../autoload.php',
+        // path repository（symlink 解決後。本体モノレポでの直接実行）
+        __DIR__ . '/../../../../vendor/autoload.php',
+        // 単体利用（本パッケージ自身の composer install）の場合
+        __DIR__ . '/../vendor/autoload.php',
+        // 実行時のカレントディレクトリを最後の手掛かりにする
+        getcwd() . '/vendor/autoload.php',
+    ];
+
+    foreach ($candidates as $autoload) {
+        if (is_file($autoload)) {
+            require_once $autoload;
+            return;
+        }
+    }
+
+    fwrite(STDERR, "autoload.php が見つかりません。先に composer install を実行してください。\n");
+    exit(1);
+})();
+
+\Acms\TestingFramework\Bootstrap::boot();
+
+exit(\Acms\TestingFramework\Database\SchemaInstaller::run());
