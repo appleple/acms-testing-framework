@@ -1,0 +1,203 @@
+<?php
+
+/**
+ * 自動生成物（tools/generate-acms-stubs.php / composer stubs）。手で編集しないこと。
+ * リクエスト処理中に本体が動的生成する「静的解析から見えない」ランタイムシンボルを補う。
+ *
+ *   - 短縮ファサードエイリアス（app.php の class_alias。DB / Auth / Config ...）を
+ *     グローバルのサブクラスとして供給する（@method static は本体ファサードから継承）。
+ *   - request-scoped 定数（SUID / CID / RBID ...）を union 型で供給する。bootstrapFiles で
+ *     固定値 define すると値が縮退し（null→null, 0→int）、is_int()/truthy 判定が
+ *     alwaysFalse/alwaysTrue の偽陽性になる。dynamicConstantNames は「値は不定」化する
+ *     だけで型は縮退値のままなので、動的ヘルパー定数を条件にした三項演算で union を作る。
+ *
+ * scanFiles 専用（解析対象にしない）。const 初期化式の静的型がそのまま定数型になる。
+ */
+
+// 値が不定な「揺さぶり」用の内部ヘルパー（dynamic-constants.neon に登録済み）。これを条件に
+// した三項演算を PHPStan は畳み込めないため、両分岐の union が定数型として残る。
+const __ACMS_DYNAMIC = true;
+
+const ACMS_SID = __ACMS_DYNAMIC ? 1 : (__ACMS_DYNAMIC ? 'x' : null);
+const ADMIN = 'x';
+const AID = __ACMS_DYNAMIC ? 1 : null;
+const BID = 1;
+const CID = __ACMS_DYNAMIC ? 1 : null;
+const CMID = __ACMS_DYNAMIC ? 1 : null;
+const DATE = __ACMS_DYNAMIC ? 'x' : null;
+const DIR_OFFSET = 'x';
+const EID = __ACMS_DYNAMIC ? 1 : null;
+const END = 'x';
+const FIELD = 'x';
+const IS_DEVELOPMENT = __ACMS_DYNAMIC ? true : null;
+const KEYWORD = 'x';
+const LAYOUT_EDIT = __ACMS_DYNAMIC ? 'x' : null;
+const LICENSE_OPTION_OEM = __ACMS_DYNAMIC ? 'x' : null;
+const ORDER = 'x';
+const PAGE = 1;
+const RBID = 1;
+const REMOTE_ADDR = 'x';
+const REQUEST_TIME = 1;
+const RID = __ACMS_DYNAMIC ? 1 : null;
+const RVID = __ACMS_DYNAMIC ? 1 : null;
+const SBID = __ACMS_DYNAMIC ? 1 : null;
+const SCRIPT_DIR = 'x';
+const SEARCH_ENGINE_KEYWORD = __ACMS_DYNAMIC ? 'x' : null;
+const SESSION_NEXT_ID = __ACMS_DYNAMIC ? 'x' : null;
+const SESSION_USE_COOKIE = __ACMS_DYNAMIC ? true : null;
+const START = 'x';
+const START_TIME = 1.0;
+const SUID = __ACMS_DYNAMIC ? 1 : null;
+const SYSTEM_GENERATED_DATETIME = __ACMS_DYNAMIC ? 'x' : null;
+const TAG = 'x';
+const UID = __ACMS_DYNAMIC ? 1 : null;
+const UTID = __ACMS_DYNAMIC ? 'x' : null;
+const VIEW = __ACMS_DYNAMIC ? 'x' : null;
+
+class ACMS_Hook extends \Acms\Services\Common\HookFactory
+{
+}
+
+class AcmsLogger extends \Acms\Services\Facades\Logger
+{
+}
+
+class App extends \Acms\Services\Facades\Application
+{
+}
+
+class Approval extends \Acms\Services\Facades\Approval
+{
+}
+
+class Asset extends \Acms\Services\Facades\Asset
+{
+}
+
+class Auth extends \Acms\Services\Facades\Auth
+{
+}
+
+class Blog extends \Acms\Services\Facades\Blog
+{
+}
+
+class Cache extends \Acms\Services\Facades\Cache
+{
+}
+
+class Category extends \Acms\Services\Facades\Category
+{
+}
+
+class Common extends \Acms\Services\Facades\Common
+{
+}
+
+class Config extends \Acms\Services\Facades\Config
+{
+}
+
+class DB extends \Acms\Services\Facades\Database
+{
+}
+
+class Entry extends \Acms\Services\Facades\Entry
+{
+}
+
+class Fulltext extends \Acms\Services\Facades\Fulltext
+{
+}
+
+class Http extends \Acms\Services\Facades\Http
+{
+}
+
+class Image extends \Acms\Services\Facades\Image
+{
+}
+
+class JQuery extends \Acms\Services\Facades\JQuery
+{
+}
+
+class LocalStorage extends \Acms\Services\Facades\LocalStorage
+{
+}
+
+class Login extends \Acms\Services\Facades\Login
+{
+}
+
+class MailTemplate extends \Acms\Services\Facades\MailTemplate
+{
+}
+
+class Mailer extends \Acms\Services\Facades\Mailer
+{
+}
+
+class Media extends \Acms\Services\Facades\Media
+{
+}
+
+class Module extends \Acms\Services\Facades\Module
+{
+}
+
+class Preview extends \Acms\Services\Facades\Preview
+{
+}
+
+class PrivateStorage extends \Acms\Services\Facades\PrivateStorage
+{
+}
+
+class PublicStorage extends \Acms\Services\Facades\PublicStorage
+{
+}
+
+class RateLimiter extends \Acms\Services\Facades\RateLimiter
+{
+}
+
+class Response extends \Acms\Services\Facades\Response
+{
+}
+
+class Session extends \Acms\Services\Facades\Session
+{
+}
+
+class Storage extends \Acms\Services\Facades\Storage
+{
+}
+
+class Tfa extends \Acms\Services\Facades\Tfa
+{
+}
+
+class Tpl extends \Acms\Services\Facades\Template
+{
+}
+
+class Twig extends \Acms\Services\Facades\Twig
+{
+}
+
+class Url extends \Acms\Services\Facades\Url
+{
+}
+
+class View extends \Acms\Services\Facades\View
+{
+}
+
+class Vite extends \Acms\Services\Facades\Vite
+{
+}
+
+class Webhook extends \Acms\Services\Facades\Webhook
+{
+}
